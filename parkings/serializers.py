@@ -5,4 +5,4 @@ from .models import Parkings
 class ParkingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Parkings
-        fields = ("x", "y","isOccupied")
+        fields = ("id","x", "y","isOccupied")
