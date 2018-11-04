@@ -27,7 +27,7 @@ class GetAllParkingsTest(BaseViewTest):
 	def test_get_all_parkings(self):
 		# hit the API endpoint
 		response = self.client.get(
-				reverse("parkings-all", kwargs={"version": "v1"})
+				reverse("parkings-all")
 		)
 		# fetch the data from db
 		expected = Parkings.objects.all()
