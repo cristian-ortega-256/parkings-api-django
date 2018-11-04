@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import ListparkingsView
+from parkings import views
 
 
 urlpatterns = [
-    path('parkings/', ListparkingsView.as_view(), name="parkings-all")
+    path('parkings/', views.parkings_list),
+    path('parkings/<int:pk>/', views.parking_detail),
 ]
