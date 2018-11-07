@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from ..models.Configuration import Configuration
 from ..serializers import ConfigurationSerializer
+from ..helpers.formatters import format_data_array, format_element
+
 
 class ConfigurationView():
 
@@ -12,21 +14,24 @@ class ConfigurationView():
         if request.method == 'GET':
             configurations = Configuration.objects.all()
             serializer = ConfigurationSerializer(configurations, many=True)
-            return JsonResponse(serializer.data,safe=False)
+            formattedData = format_data_array(serializer.data)
+            return JsonResponse(formattedData, safe=False)
 
-    @api_view(['GET','PUT'])
-    def configuration_detail(request,pk):
+    @api_view(['GET', 'PUT'])
+    def configuration_detail(request, pk):
         try:
             configElement = Configuration.objects.get(pk=pk)
         except Configuration.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
+
         if request.method == 'GET':
             serializer = ConfigurationSerializer(configElement)
-            return Response(serializer.data)
-        
+            formattedData = format_element(serializer.data)
+            return Response(formattedData)
+
         elif request.method == 'PUT':
-            serializer = ConfigurationSerializer(configElement, data=request.data)
+            serializer = ConfigurationSerializer(
+                configElement, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
