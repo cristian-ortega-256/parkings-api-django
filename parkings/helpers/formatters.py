@@ -7,3 +7,11 @@ def format_data_array(array):
 
 def format_element(element):
     return {element['key']: element['value']}
+
+
+def formatConfigObject(config):
+    formatted = {}
+    for key in config.keys():
+        formatted['key'] = key
+        formatted['value'] = config[key]
+    return formatted

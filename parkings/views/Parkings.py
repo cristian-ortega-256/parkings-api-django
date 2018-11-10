@@ -33,6 +33,20 @@ class ParkingsView():
                     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             return Response(status=status.HTTP_201_CREATED)
 
+        elif request.method == 'PUT' and 'parkings' in request.data:
+            data = request.data['parkings']
+            for parking in data:
+                try:
+                    parkingOld = Parkings.objects.get(pk=int(parking['id']))
+                except Parkings.DoesNotExist:
+                    return Response(status=status.HTTP_404_NOT_FOUND)
+                serializer = ParkingsSerializer(parkingOld, data=parking)
+                if serializer.is_valid():
+                    serializer.save()
+                else:
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_201_CREATED)
+
     @api_view(['GET', 'PUT', 'DELETE'])
     def parking_detail(request, pk):
         try:
