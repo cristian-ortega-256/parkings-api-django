@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "5cb78524-c74e-49d9-b634-ab0363914d78",
+		"name": "parkings-administrator-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Parkings",
+			"item": [
+				{
+					"name": "Parkings - GET All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "conten",
+								"value": "js",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parkings - GET One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "conten",
+								"type": "text",
+								"value": "js"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/1/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parking - POST Multiple",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"parkings\": [\n\t\t{\"id\": 1, \"tl_x\": 10, \"tl_y\": 10, \"br_x\": 50, \"br_y\": 50, \"isOccupied\": true}, \n\t\t{\"id\": 2, \"tl_x\": 40, \"tl_y\": 40, \"br_x\": 90, \"br_y\": 90, \"isOccupied\": true}, \n\t\t{\"id\": 3, \"tl_x\": 60, \"tl_y\": 60, \"br_x\": 120, \"br_y\": 120, \"isOccupied\": true}, \n\t\t{\"id\": 4, \"tl_x\": 40, \"tl_y\": 40, \"br_x\": 90, \"br_y\": 90, \"isOccupied\": true}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parking - POST One",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tl_x\": 40,\n    \"tl_y\": 40,\n    \"br_x\": 90,\n    \"br_y\": 90,\n    \"isOccupied\": false\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parkings - PUT Multiple",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"parkings\": [\n\t\t{\"id\": 19, \"tl_x\": 10, \"tl_y\": 10, \"br_x\": 50, \"br_y\": 50, \"isOccupied\": true}, \n\t\t{\"id\": 20, \"tl_x\": 40, \"tl_y\": 40, \"br_x\": 90, \"br_y\": 90, \"isOccupied\": true}, \n\t\t{\"id\": 21, \"tl_x\": 60, \"tl_y\": 60, \"br_x\": 120, \"br_y\": 120, \"isOccupied\": false}, \n\t\t{\"id\": 22, \"tl_x\": 40, \"tl_y\": 40, \"br_x\": 90, \"br_y\": 90, \"isOccupied\": false}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parkings - PUT One",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1, \n\t\"tl_x\": 10, \n\t\"tl_y\": 10,\n\t\"br_x\": 50, \n\t\"br_y\": 50, \n\t\"isOccupied\": false\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/parkings/1/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"parkings",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Configuration - GET All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configuration - GET One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/width/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								"width",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configuration - POST One",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"height\":\"300\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configuration - POST Multiple",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"configurations\": [\n\t\t{\n\t\t\t\"height\": 640\n\t\t},\n\t\t{\n\t\t\t\"width\": 480\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configuration - PUT One",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"test\":\"480\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/test/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								"test",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configuration - PUT Multiple",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"configurations\": [\n\t\t{\n\t\t\t\"height\": 640\n\t\t},\n\t\t{\n\t\t\t\"width\": 480\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/configuration/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"configuration",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
