@@ -5,22 +5,23 @@ from rest_framework.response import Response
 from ..models.Parkings import Parkings
 from ..serializers import ParkingsSerializer
 
+
 class ParkingsView():
 
-    @api_view(['GET', 'POST','PUT'])
+    @api_view(['GET', 'POST', 'PUT'])
     def parkings_list(request):
         if request.method == 'GET':
             parkings = Parkings.objects.all()
             serializer = ParkingsSerializer(parkings, many=True)
-            return JsonResponse(serializer.data,safe=False)
-            
+            return JsonResponse(serializer.data, safe=False)
+
         elif request.method == 'POST' and not 'parkings' in request.data:
             serializer = ParkingsSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
             return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
+
         elif request.method == 'POST' and 'parkings' in request.data:
             data = request.data['parkings']
             for parking in data:
