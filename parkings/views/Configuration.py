@@ -45,7 +45,7 @@ class ConfigurationView():
             for config in request.data['configurations']:
                 try:
                     configElement = Configuration.objects.get(
-                        pk=config[list(config.keys())[0]])
+                        pk=list(config.keys())[0])
                 except Configuration.DoesNotExist:
                     return Response(status=status.HTTP_404_NOT_FOUND)
 
